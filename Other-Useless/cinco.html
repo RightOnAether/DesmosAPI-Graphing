@@ -126,6 +126,123 @@
     <p class="description"> - An expanded catalogue of games that we like - <br><small>Created 9.30.25 - Supplied by <b>λambda</b> <br> We cannot guaruntee maintenance for an experimental side-project because aether said so</small></p>
     <div id="gameList" class="game-list"></div>
   </div>
+  <script>
+    function openDeltaruneLocal() {
+  const html = `
+<!DOCTYPE html>
+<html>
+<head>
+  <link id="favicon" rel="shortcut icon" type="image/x-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAIxUExURQC0Hv///wGyHACyHAGzHQGuHLbmvgCpHgCyHQGrHAGmGwGxHACtHAGrGwGqGyG0OCCwNwCjGgCqG0DFVQCkGgGeGQCiGgCbGRGvKQCoGwGhGgCYGAGsGwGjGgGcGQCXGEC8UxGsKTCiQkCzUgGaGAGZGDCoQgGFFQGJFgGXGQCKFgB9FACSGAGSGAGRFwGIFgGAFAB9FAB+EyC8OQCyHQCxHQCvHJDam7/rxnDTgAGyHQGwHACuHACsHL/qxmDIcIDYjr/sxwGxHQGvHf///0DFVu/68RG3KwGuHACrHAGoGwCmG2DGcM/u1AChGgCfGt/14wCtHACqHACnGwClG7/oxnDIfgCcGYDXjgGsHACpHACjGyCsNiCpNgCZGQCwHCC3OAGmGwCkGwCiGmDCcL/mxgGaGQCWGACpG7/pxoDSjQCdGt/y4mC+bwCUGACSFxCvKgCoG5/cqd/z4jCvRQCaGWC/bwCVGHDCfe/48QCjGiCuN8/t1K/guCCoNoDMjO/58TCrRGC8boDJi9/x4kCqUd/043DKf6DaqQCYGYDKjO/48KDWqN/w4iCbMwGLFwCJFnDFfqDXqK/dt6DVqL/jxZDNmSCaNACIFgCGFQCdGQGcGQCXGAGVGJDPmYDHixCUJQCMFgCLFwCHFgCDFQCbGQGXGQCQFwCOFwCMFwCLFgCFFQGCFQCAFQCTGAGNFwCKFwCGFgCEFgCCFQF/FQCPFwCNFwCKFgCEFQCBFQB+FLCzAvgAAAAzdFJOU1/v/v7+/t9f3/7u/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+7/7eYN/+/v7uX0DbKcIAAAABYktHRAH/Ai3eAAAAB3RJTUUH6QoUAQUwMjiWXQAAARtJREFUGNMBEAHv/gAAATMCNDQDNAQ1NTYFNwYHAAg4OQQ0NAQ0Ojs8PQk+PwoAA0BBAjo0QgtDDA0OD0QQEQA0RUZHOjU2SEkSSktMTU5PAAQ0UBM2UT1SSlNUFFVWFVcANEJYOFlSWlNUWxZcRF0XXgBfQ2BGGBlhYmMaT2RlZhtnAFEcaGlqYh1OT2sebG0fbm8AcHFLIHJVRHN0dXZsd3h5eQBNIXp7fH1+f4CBbIKDhIUiAE2Gh3OIfCOJiouMjI2Oj5AATlZ9f3WRRJKTlJWWl5CYmQCamyQlnJ0mnp+goaKYoyekAKVepmdub6eoqaooo6ukrK0AKWdurqeoryqwmLGys620KwAsLS61tqm3L7G4pLkwujEygHdboC5uc+kAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjUtMTAtMjBUMDE6MDU6NDgrMDA6MDB6VGjvAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDI1LTEwLTIwVDAxOjA1OjQ4KzAwOjAwCwnQUwAAACh0RVh0ZGF0ZTp0aW1lc3RhbXAAMjAyNS0xMC0yMFQwMTowNTo0OCswMDowMFwc8YwAAAAASUVORK5CYII=" />
+  <base href="https://cdn.jsdelivr.net/gh/genizy/web-port@a6e2b184812dd22c58e6b6a18325083b7a131981/deltarune/">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="logo-container">
+    <img src="logo.png" alt="Logo" class="logo">
+  </div>
+  
+  <div class="menu">
+    <a href="javascript:loadChapter(1)" class="row"><span class="chapter">Chapter 1</span><span class="title">The Beginning</span><img src="icons/1.png"></a>
+    <a href="javascript:loadChapter(2)" class="row"><span class="chapter">Chapter 2</span><span class="title">A Cyber's World</span><img src="icons/2.png"></a>
+    <a href="javascript:loadChapter(3)" class="row"><span class="chapter">Chapter 3</span><span class="title">Late Night</span><img src="icons/3.png"></a>
+    <a href="javascript:loadChapter(4)" class="row"><span class="chapter">Chapter 4</span><span class="title">Prophecy</span><img src="icons/4.png"></a>
+    <a href="javascript:alert('Chapter 5 coming soon!')" class="disabled-row"><span class="chapter">Chapter 5</span><span class="disabled-title">--</span><img src="icons/0.png"></a>
+    <a href="javascript:alert('Chapter 6 coming soon!')" class="disabled-row"><span class="chapter">Chapter 6</span><span class="disabled-title">--</span><img src="icons/0.png"></a>
+    <a href="javascript:alert('Chapter 7 coming soon!')" class="disabled-row"><span class="chapter">Chapter 7</span><span class="disabled-title">--</span><img src="icons/0.png"></a>
+    <a href="javascript:alert('O.O')" class="row"><span class="chapter"></span><span class="title">I HATE YOU BOG</span><span class="title">-x64bitMango</span><span class="badge"></span></a>
+  </div>
+
+  <audio id="drone" controls loop autoplay hidden>
+    <source src="audios/AUDIO_DRONE.ogg" type="audio/ogg">
+    Your browser does not support the audio element.
+  </audio>
+  <button id="mute">🔇</button>
+
+  <script>
+    const audio = document.getElementById('drone');
+    const mute = document.getElementById('mute');
+    let gamestarted = false;
+
+    mute.addEventListener('click', () => {
+      if (!gamestarted) {
+        audio.muted = !audio.muted;
+        updateButton();
+      }
+    });
+
+    function updateButton() {
+      if (!gamestarted) {
+        mute.textContent = audio.muted ? '🔊' : '🔇';
+      }
+    }
+
+    updateButton();
+
+    function loadChapter(chapter) {
+      fetch(\`chapter\${chapter}/index.html\`).then(res => res.text()).then(html => {
+        gamestarted = true;
+        document.documentElement.innerHTML = html;
+        document.documentElement.querySelectorAll('script').forEach(oldScript => {
+          const newScript = document.createElement('script');
+          if (oldScript.src) newScript.src = oldScript.src;
+          else newScript.textContent = oldScript.textContent;
+          document.body.appendChild(newScript);
+        });
+      });
+    }
+
+    const menumoveaudio = new Audio('audios/snd_menumove.mp3');
+    const menuselectaudio = new Audio('audios/snd_select.mp3');
+
+    document.querySelectorAll('.row').forEach(row => {
+      row.addEventListener('mouseenter', () => {
+        if (!gamestarted) menumoveaudio.play();
+      });
+      row.addEventListener('click', () => {
+        if (!gamestarted) menuselectaudio.play();
+      });
+    });
+
+    let selectedChapter = null;
+    document.addEventListener('keydown', e => {
+      if (!gamestarted) {
+        const rows = document.querySelectorAll('.row');
+        if (e.key === 'ArrowUp') {
+          if (selectedChapter === null) selectedChapter = 0;
+          else selectedChapter = (selectedChapter - 1 + rows.length) % rows.length;
+        } else if (e.key === 'ArrowDown') {
+          if (selectedChapter === null) selectedChapter = 0;
+          else selectedChapter = (selectedChapter + 1) % rows.length;
+        } else if (e.key === 'Enter' && selectedChapter !== null) {
+          window.location.href = rows[selectedChapter].href;
+          menuselectaudio.play();
+        }
+        rows.forEach(r => r.classList.remove('selected'));
+        if (selectedChapter !== null) rows[selectedChapter].classList.add('selected');
+      }
+    });
+
+    document.title = "Desmos | Graphing Calculator";
+  <\/script>
+</body>
+</html>
+`;
+
+  const tab = window.open("about:blank", "_blank");
+  const link = tab.document.createElement("link");
+  link.rel = "icon";
+  link.href = "https://www.desmos.com/assets/img/apps/graphing/favicon.ico"; // e.g. "https://www.desmos.com/favicon.ico"
+  tab.document.head.appendChild(link);
+  
+  if (!tab) return alert("Popup blocked!");
+  tab.document.open();
+  tab.document.write(html);
+  tab.document.close();
+
+}
+  </script>
+
 
   <script>
     // --------------------------
@@ -165,6 +282,9 @@
       newTab.document.title = "Desmos | Graphing Calculator";
     }
 
+    
+
+
     // --------------------------
     // Games array
     // --------------------------
@@ -172,6 +292,7 @@ const games = [
   { name: "Bad Time Simulator", url: "https://script.google.com/macros/s/AKfycbyDlu_jOseVJ1vs-727rRdeIgvVzKkUFT9FwBsdsaLmMKt46TmNtM_jYrDJYvPQb0Y_Lw/exec" },
   { name: "BitLife", url: "https://arcadehubgaming.github.io/cdn/bitlife/index.html" },
   { name: "DDLC (original)", url: "https://alarmedcheese85.github.io/DDLC1/" },
+  { name: "Deltarune (Chapters 1-4)", url: "I HATE ALL OF YOU THIS TOOK WAY TOO LONG TO MAKE IT'S OCTOBER NINETEENTH AND MY AUDITION IS IN 2 DAYS AND I PRACTICALLY JUST WASTED AN ENTIRE AUDITION DAY JUST TRYING TO GET THIS FUCKASS WEB PORT OF DELTARUNE WORKING", js: "openDeltaruneLocal()" },
   { name: "Eaglercraft (Minecraft Javascript Runtime 1.12.2 ALPHA)", url: "https://arcadehubgaming.github.io/cdn18/eaglercraft-1.12.2-wasm/" },
   { name: "Flappy Chairman", url: "https://rightonaether.github.io/Flappy-Chairman/" },
   { name: "Friday Night Funkin'", url: "https://arcadehubgaming.github.io/cdn2/fridaynightfunkin/index.html" },
@@ -232,7 +353,19 @@ const games = [
         const playBtn = document.createElement("button");
         playBtn.className = "btn";
         playBtn.textContent = "Play";
-        playBtn.onclick = () => injectAboutBlank(game.url);
+        playBtn.onclick = () => {
+        try {
+          if (game.js) {
+            console.log(game.js)
+            eval(game.js);
+          } else {
+            injectAboutBlank(game.url);
+          }
+        } catch (e) {
+          console.error("Error setting up play button for", game.name, e);
+        }
+      };
+
 
         const starBtn = document.createElement("button");
         starBtn.className = "btn star-btn";
