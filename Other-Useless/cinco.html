@@ -73,7 +73,7 @@
 }
 
 .search-bar {
-  width: 100%;
+  width: 500px;
   max-width: 500px;
   padding: 0.5rem 1rem;
   border-radius: 6px;
@@ -148,12 +148,36 @@
       text-shadow: 0 0 6px rgba(255, 215, 0, 0.8);
     }
   </style>
+  <script>
+    function playRandomGame() {
+  const randomIndex = Math.floor(Math.random() * games.length);
+  const randomGame = games[randomIndex];
+  try {
+    if (randomGame.js) {
+      eval(randomGame.js);
+    } else {
+      injectAboutBlank(randomGame.url);
+    }
+    } catch (e) {
+      console.error("Error playing random game:", e);
+    }
+}
+  </script>
 </head>
 <body>
   <div class="container">
     <h1> Catalogue:// </h1>
     <p class="description"> - An expanded catalogue of games that we like - <br><small>Created 9.30.25 - Supplied by <b>λambda</b> <br> We cannot guaruntee maintenance for an experimental side-project because aether said so</small></p>
-    <div class="search-container">
+    <div style="align-self:first baseline;" class="search-container"> 
+    <button onclick="playRandomGame()" class="btn" style="margin-right: 8px;">🎲</button>
+    <button onclick="document.location='https://forms.gle/C2mowNHtXe3JYaUL6'" class="btn" style="margin-right: 8px;">📩 Suggestion / Critique</button>
+    
+
+  <div style="text-align: center; margin-bottom: 1rem;">
+  
+</div>
+
+
   <input type="text" id="searchBar" class="search-bar" placeholder="Search games..." />
 </div>
 
@@ -293,6 +317,10 @@
       const welcomeText = newTab.document.createTextNode("Welcome, chump");
       newTab.document.body.appendChild(welcomeText);
 
+      const blackness = newTab.document.createElement("style");
+      blackness.innerHTML = "body { margin: 0; background: rgb(20, 20, 20); overflow: hidden; }";
+      newTab.document.head.appendChild(blackness);
+
       if (favicon) {
         const link = newTab.document.createElement("link");
         link.rel = "icon";
@@ -327,7 +355,6 @@ const games = [
   { name: "BitLife", url: "https://arcadehubgaming.github.io/cdn/bitlife/index.html" },
   { name: "Bonk.io", url: "https://bonk.io/" },
   { name: "Block Blast", url: "https://arcadehubgaming.github.io/cdn12/BlockBlast-main" },
-  { name: "Chainsaw Dance", url: "https://html-classic.itch.zone/html/3707493/index.html?v=1732313772" },
   { name: "DDLC (original)", url: "https://alarmedcheese85.github.io/DDLC1/" },
   { name: "Deltarune (Chapters 1-4)", url: "I HATE ALL OF YOU THIS TOOK WAY TOO LONG TO MAKE IT'S OCTOBER NINETEENTH AND MY AUDITION IS IN 2 DAYS AND I PRACTICALLY JUST WASTED AN ENTIRE AUDITION DAY JUST TRYING TO GET THIS FUCKASS WEB PORT OF DELTARUNE WORKING", js: "openDeltaruneLocal()" },
   { name: "Eaglercraft (Minecraft Javascript Runtime 1.12.2 ALPHA)", url: "https://arcadehubgaming.github.io/cdn18/eaglercraft-1.12.2-wasm/" },
@@ -344,7 +371,7 @@ const games = [
   { name: "Friday Night Funkin' (ann)", url: "https://arcadehubgaming.github.io/cdn8/ann" },
   { name: "Friday Night Funkin' (week 3 remastered)", url: "https://fnf.kdata1.com/2024/week-3-remaster-vs-pico/1/" },
   { name: "FUNKADELIX ' (FNF with lyrics)", url: "https://fnf.kdata1.com/2024/funkadelix-fnf-with-lyrics/60/" },
-  { name: "Happy Wheels", url: "https://arcadehubgaming.github.io/cdn2/happywheels/index.html" },
+  { name: "Happy Room", url: "https://htmlxm.github.io/h7/happy-room/" },
   { name: "OSU!", url: "https://arcadehubgaming.github.io/cdn5/cdn5/osu!/index.html" },
   { name: "OSU! Mania (Web Version)", url: "https://webosumania.com/" },
   { name: "Papa's Burgeria", url: "https://arcadehubgaming.github.io/cdn5/cdn5/papasburgeria/index.html" },
@@ -352,15 +379,17 @@ const games = [
   { name: "Papa's Scooperia", url: "https://arcadehubgaming.github.io/cdn3/cdn3/scooperia/index.html" },
   { name: "Papa's Wingeria", url: "https://arcadehubgaming.github.io/cdn14/papaswingeria/" },
   { name: "Parappa the Rapper", url: "https://www.retrogames.cc/embed/41581-parappa-the-rapper.html" },
-  { name: "Please, Don't Touch Anything", url: "https://html-classic.itch.zone/html/496812/index.html?v=1542781860" },
+  { name: "Plants vs. Zombies", url: "https://arcadehubgaming.github.io/cdn11/PlantsVsZombies-main" },
+  { name: "Please, Don't Touch Anything", url: "https://www.gamesflow.com/jeux/html5/9010613/" },
   { name: "Pokémon Emerald", url: "https://script.google.com/macros/s/AKfycbydeGJlDAWwZCE5PY08zOOmx37ItizsHHLSxDEwAEOsGgT7n9rqb4V1Anelns4sezU6/exec" },
-  { name: "Pokémon Fire Red", url: "https://script.google.com/macros/s/AKfycbzEbzXxS4zazELSeJtXyLaPrJhPMEJsh2lACeG_0Ky7xTL0ewG0m1iJeU2d1K0OmeGOug/exec" },
+  { name: "Pokémon Fire Red`", url: "https://script.google.com/macros/s/AKfycbzEbzXxS4zazELSeJtXyLaPrJhPMEJsh2lACeG_0Ky7xTL0ewG0m1iJeU2d1K0OmeGOug/exec" },
   { name: "Pokémon Leaf Green", url: "https://script.google.com/macros/s/AKfycbxWYXzXN3TRwxELxgrTkjmE5hyqPMgzdNn6clWSzVcU-m0m9MDdHHb-VP-VDnz06vNe/exec" },
   { name: "Pokémon Ruby", url: "https://script.google.com/macros/s/AKfycbypOitjGD19RPkCYQ8vgJzFfmtMtnl3naBwSw9OhpqtalZs0k3Pri3nL7X76qUwdV9GGQ/exec" },
   { name: "Pokémon Sapphire", url: "https://script.google.com/macros/s/AKfycbyeS8uFFwRdwOSD8Nx9TgRvHjajV_wF-Hhcb1yylBWSderXu0DEwCWC639oGWZThrjP/exec" },
   { name: "Stick War", url: "https://arcadehubgaming.github.io/cdn4/cdn4/stickwar/index.html" },
-  { name: "Sort the Court", url: "https://html-classic.itch.zone/html/347310/index.html?v=1542780889" },
+  { name: "Sort the Court", url: "https://en.gameslol.net/data/sort-the-court/index.html" },
   { name: "Subway Surfers", url: "https://arcadehubgaming.github.io/cdn4/cdn4/subway-surfers/index.html" },
+  { name: "Super Smash Flash 2", url: "https://www.twoplayergames.org/gameframe/super-smash-flash-2?embed=1" },
   { name: "Swords and Souls (PERSONAL FAVORITE)", url: "https://script.google.com/macros/s/AKfycbwpk3_eQ-NLDyEjcqWn-txMpuRmeF2pgck1awpz9tkMNL79tQ_hYiqC3hKdWhXXXK1f1g/exec" },
   { name: "Tank Trouble 2 (A Personal Favorite)", url: "https://arcadehubgaming.github.io/cdn4/cdn4/tank-trouble-2/index.html" },
   { name: "The Binding of Isaac", url: "https://arcadehubgaming.github.io/cdn7/bindings of issac/" },
@@ -412,6 +441,8 @@ const games = [
       };
 
       const searchBar = document.getElementById("searchBar");
+
+
 
 searchBar.addEventListener("input", () => {
   const query = searchBar.value.toLowerCase();
