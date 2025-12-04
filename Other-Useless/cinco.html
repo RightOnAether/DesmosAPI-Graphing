@@ -167,7 +167,7 @@
 <body>
   <div class="container">
     <h1> Catalogue:// </h1>
-    <p class="description"> - An expanded catalogue of games that we like - <br><small>Created 9.30.25 - Supplied by <b>λambda</b> <br> We cannot guaruntee maintenance for an experimental side-project because aether said so</small></p>
+    <p class="description"> - An expanded catalogue of games that we like - <br><small>Created 9.30.25 - Supplied by <b>λambda</b> <br>Side-quest turned into a main quest and now we're out for blood after this new block. <br> Experimental CDNs hosted by us are being tested for some games <b>to make sure they can never be blocked again.</b></small></p>
     <div style="align-self:first baseline;" class="search-container"> 
     <button onclick="playRandomGame()" class="btn" style="margin-right: 8px;">🎲</button>
     <button onclick="document.location='https://forms.gle/C2mowNHtXe3JYaUL6'" class="btn" style="margin-right: 8px;">📩 Suggestion / Critique</button>
@@ -296,8 +296,26 @@
   tab.document.open();
   tab.document.write(html);
   tab.document.close();
+ 
 
 }
+  
+  
+  function fetchFromCDN(source) {
+  fetch(`${source}`)
+    .then(response => response.text())
+    .then(text => {
+      const newWin = window.open("about:blank", "_blank");
+      if (newWin) {
+        newWin.document.open();
+        newWin.document.write(text);
+        newWin.document.close();
+        }
+      });
+      alert("The game may take a few moments to load, so please be patient! \n(A white screen/black at first load does not mean it's broken) \n(and if you recieve a 'popup blocked' alert, just press play again, and it'll load the site)");
+
+  }
+  
   </script>
 
 
@@ -351,9 +369,9 @@
     // --------------------------
 const games = [
   { name: "Bad Time Simulator", url: "https://script.google.com/macros/s/AKfycbyDlu_jOseVJ1vs-727rRdeIgvVzKkUFT9FwBsdsaLmMKt46TmNtM_jYrDJYvPQb0Y_Lw/exec" },
-  { name: "Bad Piggies (Full Sandbox, Just a little chinese spyware involved)", url: "https://kdata1.com/2025/03/BadPiggiesOnline2018/" },
+  // { name: "Bad Piggies (Full Sandbox, Just a little chinese spyware involved)", url: "https://kdata1.com/2025/03/BadPiggiesOnline2018/" },
   { name: "BitLife", url: "https://arcadehubgaming.github.io/cdn/bitlife/index.html" },
-  { name: "Bonk.io", url: "https://bonk.io/" },
+  // { name: "Bonk.io", url: "https://bonk.io/" },
   { name: "Block Blast", url: "https://arcadehubgaming.github.io/cdn12/BlockBlast-main" },
   { name: "DDLC (original)", url: "https://alarmedcheese85.github.io/DDLC1/" },
   { name: "Deltarune (Chapters 1-4)", url: "I HATE ALL OF YOU THIS TOOK WAY TOO LONG TO MAKE IT'S OCTOBER NINETEENTH AND MY AUDITION IS IN 2 DAYS AND I PRACTICALLY JUST WASTED AN ENTIRE AUDITION DAY JUST TRYING TO GET THIS FUCKASS WEB PORT OF DELTARUNE WORKING", js: "openDeltaruneLocal()" },
@@ -370,6 +388,12 @@ const games = [
   { name: "Friday Night Funkin' (X event)", url: "https://arcadehubgaming.github.io/cdn14/papaswingeria/" },
   { name: "Friday Night Funkin' (ann)", url: "https://arcadehubgaming.github.io/cdn8/ann" },
   { name: "Friday Night Funkin' (week 3 remastered)", url: "https://fnf.kdata1.com/2024/week-3-remaster-vs-pico/1/" },
+  { name: "Friday Night Funkin' (sonic.exe)", url: "https://fnf.kdata1.com/sonic.exe/3/" },
+  { name: "Friday Night Funkin' (sonic.exe but vs rewrite instead)", url: "https://fnf.kdata1.com/rewrite-sonic-exe/1.2/" },
+  { name: "Friday Night Funkin' (sonic.exe triple trouble encore)", url: "https://fnf.kdata1.com/triple-trouble-encore-sonic-exe/1/" },
+  { name: "Friday Night Funkin' (sonic.exe final triple trouble encore)", url: "https://fnf.kdata1.com/triple-trouble-encore-sonic-exe/1/" },
+  { name: "Friday Night Funkin' (silly billy)", url: "https://fnf.kdata1.com/2024/silly-billy-vs-yourself/1/" },
+  
   { name: "FUNKADELIX ' (FNF with lyrics)", url: "https://fnf.kdata1.com/2024/funkadelix-fnf-with-lyrics/60/" },
   { name: "Happy Room", url: "https://htmlxm.github.io/h7/happy-room/" },
   { name: "OSU!", url: "https://arcadehubgaming.github.io/cdn5/cdn5/osu!/index.html" },
@@ -380,20 +404,23 @@ const games = [
   { name: "Papa's Wingeria", url: "https://arcadehubgaming.github.io/cdn14/papaswingeria/" },
   { name: "Parappa the Rapper", url: "https://www.retrogames.cc/embed/41581-parappa-the-rapper.html" },
   { name: "Plants vs. Zombies", url: "https://arcadehubgaming.github.io/cdn11/PlantsVsZombies-main" },
-  { name: "Please, Don't Touch Anything", url: "https://www.gamesflow.com/jeux/html5/9010613/" },
+  // { name: "Please, Don't Touch Anything", url: "https://www.gamesflow.com/jeux/html5/9010613/" },
   { name: "Pokémon Emerald", url: "https://script.google.com/macros/s/AKfycbydeGJlDAWwZCE5PY08zOOmx37ItizsHHLSxDEwAEOsGgT7n9rqb4V1Anelns4sezU6/exec" },
   { name: "Pokémon Fire Red`", url: "https://script.google.com/macros/s/AKfycbzEbzXxS4zazELSeJtXyLaPrJhPMEJsh2lACeG_0Ky7xTL0ewG0m1iJeU2d1K0OmeGOug/exec" },
   { name: "Pokémon Leaf Green", url: "https://script.google.com/macros/s/AKfycbxWYXzXN3TRwxELxgrTkjmE5hyqPMgzdNn6clWSzVcU-m0m9MDdHHb-VP-VDnz06vNe/exec" },
   { name: "Pokémon Ruby", url: "https://script.google.com/macros/s/AKfycbypOitjGD19RPkCYQ8vgJzFfmtMtnl3naBwSw9OhpqtalZs0k3Pri3nL7X76qUwdV9GGQ/exec" },
   { name: "Pokémon Sapphire", url: "https://script.google.com/macros/s/AKfycbyeS8uFFwRdwOSD8Nx9TgRvHjajV_wF-Hhcb1yylBWSderXu0DEwCWC639oGWZThrjP/exec" },
   { name: "Stick War", url: "https://arcadehubgaming.github.io/cdn4/cdn4/stickwar/index.html" },
-  { name: "Sort the Court", url: "https://en.gameslol.net/data/sort-the-court/index.html" },
+  { name: "Street Fighter 2", url: "Hosted on a local CDN :D", js: "fetchFromCDN('https://cdn.jsdelivr.net/gh/ResonanceRenaissance/webportsCDN/street-fighter/2/index.html')" },
+  { name: "Street Fighter 2 - Turbo", url: "Hosted on a local CDN :D", js: "fetchFromCDN('https://cdn.jsdelivr.net/gh/ResonanceRenaissance/webportsCDN/street-fighter/2-turbo/index.html')" },
+  { name: "Street Fighter 3 - 3rd Strike (Alpha)", url: "Hosted on a local CDN :D", js: "fetchFromCDN('https://cdn.jsdelivr.net/gh/ResonanceRenaissance/webportsCDN/street-fighter/3-alpha/index.html')" },
+  // { name: "Sort the Court", url: "https://en.gameslol.net/data/sort-the-court/index.html" },
   { name: "Subway Surfers", url: "https://arcadehubgaming.github.io/cdn4/cdn4/subway-surfers/index.html" },
   { name: "Super Smash Flash 2", url: "https://www.twoplayergames.org/gameframe/super-smash-flash-2?embed=1" },
   { name: "Swords and Souls (PERSONAL FAVORITE)", url: "https://script.google.com/macros/s/AKfycbwpk3_eQ-NLDyEjcqWn-txMpuRmeF2pgck1awpz9tkMNL79tQ_hYiqC3hKdWhXXXK1f1g/exec" },
   { name: "Tank Trouble 2 (A Personal Favorite)", url: "https://arcadehubgaming.github.io/cdn4/cdn4/tank-trouble-2/index.html" },
   { name: "The Binding of Isaac", url: "https://arcadehubgaming.github.io/cdn7/bindings of issac/" },
-  { name: "Taiko no Tatsujin Web (Aether's Personal Fav)", url: "https://cjdgrevival.com" },
+  // { name: "Taiko no Tatsujin Web (Aether's Personal Fav)", url: "https://cjdgrevival.com" },
 ];
 
 
