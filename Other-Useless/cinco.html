@@ -167,7 +167,7 @@
 <body>
   <div class="container">
     <h1> Catalogue:// </h1>
-    <p class="description"> - An expanded catalogue of games that we like - <br><small>Created 9.30.25 - Supplied by <b>λambda</b> <br>Side-quest turned into a main quest and now we're out for blood after this new block. <br> Experimental CDNs hosted by us are being tested for some games <b>to make sure they can never be blocked again.</b></small></p>
+    <p class="description"> - An expanded catalogue of games that we like - <br><small>Created 9.30.25 - Supplied by <b>λambda</b> <br>Now with the Strikeforce Kitty franchise! <br>(Alongside other notable games such as <b>Balatro</b>, <b>Slime Rancher</b>, <b>Buckshot Roullete</b>,<br> and <b>Sort the Court</b> to make <b>12 new games</b>, with 2 of them being your own suggestions!)</small></p>
     <div style="align-self:first baseline;" class="search-container"> 
     <button onclick="playRandomGame()" class="btn" style="margin-right: 8px;">🎲</button>
     <button onclick="document.location='https://forms.gle/C2mowNHtXe3JYaUL6'" class="btn" style="margin-right: 8px;">📩 Suggestion / Critique</button>
@@ -301,18 +301,27 @@
 }
   
   
-  function fetchFromCDN(source) {
+  function fetchFromCDN(source, favicon = "https://www.desmos.com/assets/img/apps/graphing/favicon.ico") {
   fetch(`${source}`)
     .then(response => response.text())
     .then(text => {
+
       const newWin = window.open("about:blank", "_blank");
+      
       if (newWin) {
         newWin.document.open();
         newWin.document.write(text);
         newWin.document.close();
+        const link = newWin.document.createElement("link");
+        link.rel = "icon";
+        link.href = favicon;
+        newWin.document.head.appendChild(link);
+
         }
       });
-      alert("The game may take a few moments to load, so please be patient! \n(A white screen/black at first load does not mean it's broken) \n(and if you recieve a 'popup blocked' alert, just press play again, and it'll load the site)");
+
+
+      alert("Hosted right at home... Enjoy!");
 
   }
   
@@ -369,10 +378,17 @@
     // --------------------------
 const games = [
   { name: "Bad Time Simulator", url: "https://script.google.com/macros/s/AKfycbyDlu_jOseVJ1vs-727rRdeIgvVzKkUFT9FwBsdsaLmMKt46TmNtM_jYrDJYvPQb0Y_Lw/exec" },
+  { name: "Balatro", url: "https://waguri.jalcorn.net/games/balatro/index.html" },
+  { name: "Basket Bros (To the one guy that asked for this)", url: "https://basketbros-unblocked.github.io/a7/basket-bros/" },
   // { name: "Bad Piggies (Full Sandbox, Just a little chinese spyware involved)", url: "https://kdata1.com/2025/03/BadPiggiesOnline2018/" },
   { name: "BitLife", url: "https://arcadehubgaming.github.io/cdn/bitlife/index.html" },
+  
+  { name: "Blackjack", url: "https://waguri.jalcorn.net/gamefile/BlackJack.html" },
   // { name: "Bonk.io", url: "https://bonk.io/" },
   { name: "Block Blast", url: "https://arcadehubgaming.github.io/cdn12/BlockBlast-main" },
+  { name: "Buckshot Roullete", url: "https://waguri.jalcorn.net/games/buckshot/index.html" },
+  { name: "Cell Machine", url: "https://arcadehubgaming.github.io/cdn/cell-machine/index.html" },
+  { name: "Cookie Clicker (NOT A:B Appended)", url: "https://clickedforthecooks.netlify.app/", js:"alert('This game is NOT about:blank appended, meaning it WILL show up in your search history.'); document.location='https://clickedforthecooks.netlify.app/'" },
   { name: "DDLC (original)", url: "https://alarmedcheese85.github.io/DDLC1/" },
   { name: "Deltarune (Chapters 1-4)", url: "I HATE ALL OF YOU THIS TOOK WAY TOO LONG TO MAKE IT'S OCTOBER NINETEENTH AND MY AUDITION IS IN 2 DAYS AND I PRACTICALLY JUST WASTED AN ENTIRE AUDITION DAY JUST TRYING TO GET THIS FUCKASS WEB PORT OF DELTARUNE WORKING", js: "openDeltaruneLocal()" },
   { name: "Eaglercraft (Minecraft Javascript Runtime 1.12.2 ALPHA)", url: "https://arcadehubgaming.github.io/cdn18/eaglercraft-1.12.2-wasm/" },
@@ -412,17 +428,25 @@ const games = [
   { name: "Pokémon Leaf Green", url: "https://script.google.com/macros/s/AKfycbxWYXzXN3TRwxELxgrTkjmE5hyqPMgzdNn6clWSzVcU-m0m9MDdHHb-VP-VDnz06vNe/exec" },
   { name: "Pokémon Ruby", url: "https://script.google.com/macros/s/AKfycbypOitjGD19RPkCYQ8vgJzFfmtMtnl3naBwSw9OhpqtalZs0k3Pri3nL7X76qUwdV9GGQ/exec" },
   { name: "Pokémon Sapphire", url: "https://script.google.com/macros/s/AKfycbyeS8uFFwRdwOSD8Nx9TgRvHjajV_wF-Hhcb1yylBWSderXu0DEwCWC639oGWZThrjP/exec" },
+  { name: "Slime Rancher (Web Port)", url: "https://slime-rancherweb.netlify.app/" },
   { name: "Stick War", url: "https://arcadehubgaming.github.io/cdn4/cdn4/stickwar/index.html" },
   { name: "Street Fighter 2", url: "Hosted on a local CDN :D", js: "fetchFromCDN('https://cdn.jsdelivr.net/gh/ResonanceRenaissance/webportsCDN/street-fighter/2/index.html')" },
   { name: "Street Fighter 2 - Turbo", url: "Hosted on a local CDN :D", js: "fetchFromCDN('https://cdn.jsdelivr.net/gh/ResonanceRenaissance/webportsCDN/street-fighter/2-turbo/index.html')" },
   { name: "Street Fighter 3 - 3rd Strike (Alpha)", url: "Hosted on a local CDN :D", js: "fetchFromCDN('https://cdn.jsdelivr.net/gh/ResonanceRenaissance/webportsCDN/street-fighter/3-alpha/index.html')" },
-  // { name: "Sort the Court", url: "https://en.gameslol.net/data/sort-the-court/index.html" },
+  { name: "Strikeforce Kitty 1", url: "Hosted on a local CDN :D", js: "fetchFromCDN('https://raw.githubusercontent.com/ResonanceRenaissance/swfCDN/refs/heads/main/strikeforce-kitty/1/index.html')" },
+  { name: "Strikeforce Kitty 2", url: "Hosted on a local CDN :D", js: "fetchFromCDN('https://raw.githubusercontent.com/ResonanceRenaissance/swfCDN/refs/heads/main/strikeforce-kitty/2/index.html')" },
+  { name: "Strikeforce Kitty: Last Stand", url: "Hosted on a local CDN :D", js: "fetchFromCDN('https://raw.githubusercontent.com/ResonanceRenaissance/swfCDN/refs/heads/main/strikeforce-kitty/last-stand/index.html')" },
+  { name: "Strikeforce Kitty: League", url: "Hosted on a local CDN :D", js: "fetchFromCDN('https://raw.githubusercontent.com/ResonanceRenaissance/swfCDN/refs/heads/main/strikeforce-kitty/league/index.html')" },
+  { name: "Sort the Court", url: "https://script.google.com/macros/s/AKfycbzzDc0nSAmDzkY5U2rHlH8_ljr-7z0Klo8pcuw7SpkOoiDVEagec-BS4jQxyT0j22TWeg/exec" },
   { name: "Subway Surfers", url: "https://arcadehubgaming.github.io/cdn4/cdn4/subway-surfers/index.html" },
   { name: "Super Smash Flash 2", url: "https://www.twoplayergames.org/gameframe/super-smash-flash-2?embed=1" },
   { name: "Swords and Souls (PERSONAL FAVORITE)", url: "https://script.google.com/macros/s/AKfycbwpk3_eQ-NLDyEjcqWn-txMpuRmeF2pgck1awpz9tkMNL79tQ_hYiqC3hKdWhXXXK1f1g/exec" },
+  
   { name: "Tank Trouble 2 (A Personal Favorite)", url: "https://arcadehubgaming.github.io/cdn4/cdn4/tank-trouble-2/index.html" },
   { name: "The Binding of Isaac", url: "https://arcadehubgaming.github.io/cdn7/bindings of issac/" },
   // { name: "Taiko no Tatsujin Web (Aether's Personal Fav)", url: "https://cjdgrevival.com" },
+  { name: "Wolfenstein 3D", url: "https://arcadehubgaming.github.io/cdn6/cdn6/wolf3d/index.html" },
+  
 ];
 
 
