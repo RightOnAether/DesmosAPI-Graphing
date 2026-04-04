@@ -168,13 +168,13 @@
   <div class="container">
     <h1> Catalogue:// </h1>
     <p class="description"> - An expanded catalogue of games that we like - <br><small>Created 9.30.25 - Supplied by <b>λambda</b> <br>Now with the Strikeforce Kitty franchise! <br>(Alongside other notable games such as <b>Hollow Knight</b>, <b>Celeste</b> and <b>Smash Karts</b>.)</small></p>
-    <div style="align-self:first baseline;" class="search-container"> 
+    <div style="align-self:first baseline;" class="search-container">
     <button onclick="playRandomGame()" class="btn" style="margin-right: 8px;">🎲</button>
     <button onclick="document.location='https://forms.gle/C2mowNHtXe3JYaUL6'" class="btn" style="margin-right: 8px;">📩 Suggestion / Critique</button>
-    
+
 
   <div style="text-align: center; margin-bottom: 1rem;">
-  
+
 </div>
 
 
@@ -198,7 +198,7 @@
   <div class="logo-container">
     <img src="logo.png" alt="Logo" class="logo">
   </div>
-  
+
   <div class="menu">
     <a href="javascript:loadChapter(1)" class="row"><span class="chapter">Chapter 1</span><span class="title">The Beginning</span><img src="icons/1.png"></a>
     <a href="javascript:loadChapter(2)" class="row"><span class="chapter">Chapter 2</span><span class="title">A Cyber's World</span><img src="icons/2.png"></a>
@@ -291,23 +291,23 @@
   link.rel = "icon";
   link.href = "https://www.desmos.com/assets/img/apps/graphing/favicon.ico"; // e.g. "https://www.desmos.com/favicon.ico"
   tab.document.head.appendChild(link);
-  
+
   if (!tab) return alert("Popup blocked!");
   tab.document.open();
   tab.document.write(html);
   tab.document.close();
- 
+
 
 }
-  
-  
+
+
   function fetchFromCDN(source, favicon = "https://www.desmos.com/assets/img/apps/graphing/favicon.ico") {
   fetch(`${source}`)
     .then(response => response.text())
     .then(text => {
 
       const newWin = window.open("about:blank", "_blank");
-      
+
       if (newWin) {
         newWin.document.open();
         newWin.document.write(text);
@@ -321,7 +321,7 @@
       });
 
   }
-  
+
   </script>
 
 
@@ -367,21 +367,23 @@
       newTab.document.title = "Desmos | Graphing Calculator";
     }
 
-    
+
 
 
     // --------------------------
     // Games array
     // --------------------------
 const games = [
+
+  { name: "Among Us (Singleplayer)!", url: "https://michuscrypt.github.io/jack-games/among-us/index.html" },
   { name: "Bad Time Simulator", url: "https://script.google.com/macros/s/AKfycbyDlu_jOseVJ1vs-727rRdeIgvVzKkUFT9FwBsdsaLmMKt46TmNtM_jYrDJYvPQb0Y_Lw/exec" },
   { name: "Balatro", url: "https://waguri.jalcorn.net/games/balatro/index.html" },
   { name: "Basket Bros (To the one guy that asked for this)", url: "https://basketbros-unblocked.github.io/a7/basket-bros/" },
   { name: "Baseball Bros", url: "https://waguri.jalcorn.net/games/baseballbros/index.html" },
-  
-  // { name: "Bad Piggies (Full Sandbox, Just a little chinese spyware involved)", url: "https://kdata1.com/2025/03/BadPiggiesOnline2018/" },
+
+  { name: "Bad Piggies (Hacked Client)!", url: "https://waguri.jalcorn.net/gamefile/piggies.html" },
   { name: "BitLife", url: "https://arcadehubgaming.github.io/cdn/bitlife/index.html" },
-  
+
   { name: "Blackjack", url: "https://waguri.jalcorn.net/gamefile/BlackJack.html" },
   // { name: "Bonk.io", url: "https://bonk.io/" },
   { name: "Block Blast", url: "https://arcadehubgaming.github.io/cdn12/BlockBlast-main" },
@@ -432,6 +434,7 @@ const games = [
   { name: "Pokémon Leaf Green", url: "https://script.google.com/macros/s/AKfycbxWYXzXN3TRwxELxgrTkjmE5hyqPMgzdNn6clWSzVcU-m0m9MDdHHb-VP-VDnz06vNe/exec" },
   { name: "Pokémon Ruby", url: "https://script.google.com/macros/s/AKfycbypOitjGD19RPkCYQ8vgJzFfmtMtnl3naBwSw9OhpqtalZs0k3Pri3nL7X76qUwdV9GGQ/exec" },
   { name: "Pokémon Sapphire", url: "https://script.google.com/macros/s/AKfycbyeS8uFFwRdwOSD8Nx9TgRvHjajV_wF-Hhcb1yylBWSderXu0DEwCWC639oGWZThrjP/exec" },
+  { name: "Shogun Showdown!", url: "https://script.google.com/macros/s/AKfycbzslmKyXIbcAa1UmApxvSWveDc_NuRfuNYy-oo5-3yCML4N8_-2JoRilqhc92FqrsP0lg/exec" },
   { name: "Slime Rancher (Web Port)", url: "https://slime-rancherweb.netlify.app/" },
   { name: "Soccer Bros", url: "https://waguri.jalcorn.net/games/soccerbros/index.html" },
   { name: "Stick War", url: "https://arcadehubgaming.github.io/cdn4/cdn4/stickwar/index.html" },
@@ -453,7 +456,7 @@ const games = [
   { name: "The Binding Of Isaac - Wrath of The Lamb [ETERNAL]", url: "https://binding-of-isaac-wotl.netlify.app/wrath-of-the-lamb-eternal/" },
   // { name: "Taiko no Tatsujin Web (Aether's Personal Fav)", url: "https://cjdgrevival.com" },
   { name: "Wolfenstein 3D", url: "https://arcadehubgaming.github.io/cdn6/cdn6/wolf3d/index.html" },
-  
+
 ];
 
 
@@ -507,7 +510,7 @@ const games = [
 searchBar.addEventListener("input", () => {
   const query = searchBar.value.toLowerCase();
   const filteredGames = games.filter(game => game.name.toLowerCase().includes(query));
-  
+
   const gameList = document.getElementById("gameList");
   gameList.innerHTML = "";
 
