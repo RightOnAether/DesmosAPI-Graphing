@@ -167,12 +167,10 @@
 <body>
   <div class="container">
     <h1> Catalogue:// </h1>
-    <p class="description"> - An expanded catalogue of games that we like - <br><small>Created 9.30.25 - Supplied by <b>λambda</b> <br>Now with the Strikeforce Kitty franchise! <br>(Alongside other notable games such as <b>Hollow Knight</b>, <b>Celeste</b> and <b>Smash Karts</b>.)</small></p>
+    <p class="description"> - An expanded catalogue of <span id="gameLen">a couple</span> games that we like - <br><small>Created 9.30.25<br></p>
     <div style="align-self:first baseline;" class="search-container">
     <button onclick="playRandomGame()" class="btn" style="margin-right: 8px;">🎲</button>
     <button onclick="document.location='https://forms.gle/C2mowNHtXe3JYaUL6'" class="btn" style="margin-right: 8px;">📩 Suggestion / Critique</button>
-
-
   <div style="text-align: center; margin-bottom: 1rem;">
 
 </div>
@@ -378,6 +376,7 @@ const games = [
   { name: "Among Us (Singleplayer)!", url: "https://michuscrypt.github.io/jack-games/among-us/index.html" },
   { name: "Bad Time Simulator", url: "https://script.google.com/macros/s/AKfycbyDlu_jOseVJ1vs-727rRdeIgvVzKkUFT9FwBsdsaLmMKt46TmNtM_jYrDJYvPQb0Y_Lw/exec" },
   { name: "Balatro", url: "https://waguri.jalcorn.net/games/balatro/index.html" },
+  { name: "Bart Blast!", url: "https://waguri.jalcorn.net/gamefile/bart.html" },
   { name: "Basket Bros (To the one guy that asked for this)", url: "https://basketbros-unblocked.github.io/a7/basket-bros/" },
   { name: "Baseball Bros", url: "https://waguri.jalcorn.net/games/baseballbros/index.html" },
 
@@ -385,12 +384,17 @@ const games = [
   { name: "BitLife", url: "https://arcadehubgaming.github.io/cdn/bitlife/index.html" },
 
   { name: "Blackjack", url: "https://waguri.jalcorn.net/gamefile/BlackJack.html" },
-  // { name: "Bonk.io", url: "https://bonk.io/" },
+  { name: "Bloons TD5!", url: "https://script.google.com/a/macros/wwstudent.org/s/AKfycbzSjvvBl4oIbQbsdQ6wORkEPqBumZKhlNUW3FirGHuAIe6EPZ_QGuF4N0TqjL0ECFoo/exec" },
+  { name: "Bonk.io!", url: "https://bonkisback.io/" },
   { name: "Block Blast", url: "https://arcadehubgaming.github.io/cdn12/BlockBlast-main" },
+  { name: "Brotato: Paws and Claws!", url: "https://waguri.jalcorn.net/games/brotato2/index.html" },
   { name: "Buckshot Roullete", url: "https://waguri.jalcorn.net/games/buckshot/index.html" },
   { name: "Celeste", url: "https://waguri.jalcorn.net/games/celeste/index.html" },
   { name: "Cell Machine", url: "https://arcadehubgaming.github.io/cdn/cell-machine/index.html" },
+  { name: "Clover Pit!", url: "https://waguri.jalcorn.net/gamefile/cloverpit.html" },
   { name: "Cookie Clicker (NOT A:B Appended)", url: "https://clickedforthecooks.netlify.app/", js:"alert('This game is NOT about:blank appended, meaning it WILL show up in your search history.'); document.location='https://clickedforthecooks.netlify.app/'" },
+  { name: "Crazy Cattle 3D!", url: "https://waguri.jalcorn.net/games/cattle3d/index.html" },
+  { name: "CS:GO Clicker!", url: "https://waguri.jalcorn.net/games/csgo-clicker/index.html" },
   { name: "DDLC (original)", url: "https://alarmedcheese85.github.io/DDLC1/" },
   { name: "Deltarune (Chapters 1-4)", url: "I HATE ALL OF YOU THIS TOOK WAY TOO LONG TO MAKE IT'S OCTOBER NINETEENTH AND MY AUDITION IS IN 2 DAYS AND I PRACTICALLY JUST WASTED AN ENTIRE AUDITION DAY JUST TRYING TO GET THIS FUCKASS WEB PORT OF DELTARUNE WORKING", js: "openDeltaruneLocal()" },
   { name: "Eaglercraft (Minecraft Javascript Runtime 1.12.2 ALPHA)", url: "https://arcadehubgaming.github.io/cdn18/eaglercraft-1.12.2-wasm/" },
@@ -398,6 +402,7 @@ const games = [
   { name: "Eaglercraft (Minecraft Astra Client 1.5)", url: "https://arcadehubgaming.github.io/cdn18/astra/" },
   { name: "Flappy Chairman", url: "https://rightonaether.github.io/Flappy-Chairman/" },
   { name: "Football Bros", url: "https://waguri.jalcorn.net/games/footballbros/index.html" },
+  { name: "Five Nights at Epstein's!", url: "https://waguri.jalcorn.net/gamefile/fnae.html" },
   { name: "Five Nights at Freddy's (FNAF 1)", url: "https://arcadehubgaming.github.io/cdn7/fnaf/1/index.html" },
   { name: "Five Nights at Freddy's (FNAF 2)", url: "https://arcadehubgaming.github.io/cdn7/fnaf/2/index.html" },
   { name: "Five Nights at Freddy's (Ultimate Custom Night)", url: "https://arcadehubgaming.github.io/cdn7/fnaf/ucn/index.html" },
@@ -418,8 +423,11 @@ const games = [
   { name: "Friday Night Funkin' (silly billy)", url: "https://fnf.kdata1.com/2024/silly-billy-vs-yourself/1/" },
   */
   { name: "FUNKADELIX ' (FNF with lyrics)", url: "https://fnf.kdata1.com/2024/funkadelix-fnf-with-lyrics/60/" },
+  { name: "Get Yoked!", url: "https://waguri.jalcorn.net/gamefile/yoked.html" },
   { name: "Happy Room", url: "https://htmlxm.github.io/h7/happy-room/" },
   { name: "Hollow Knight [WEB PORT]", url: "https://waguri.jalcorn.net/games/hollowknight/index.html" },
+  { name: "Iron Lung!", url: "https://waguri.jalcorn.net/games/ironlung/index.html" },
+  { name: "Orange Roullete!", url: "https://waguri.jalcorn.net/gamefile/orange.html" },
   { name: "OSU!", url: "https://arcadehubgaming.github.io/cdn5/cdn5/osu!/index.html" },
   { name: "OSU! Mania (Web Version)", url: "https://webosumania.com/" },
   { name: "Papa's Burgeria", url: "https://arcadehubgaming.github.io/cdn5/cdn5/papasburgeria/index.html" },
@@ -430,12 +438,20 @@ const games = [
   { name: "Plants vs. Zombies", url: "https://arcadehubgaming.github.io/cdn11/PlantsVsZombies-main" },
   // { name: "Please, Don't Touch Anything", url: "https://www.gamesflow.com/jeux/html5/9010613/" },
   { name: "Pokémon Emerald", url: "https://script.google.com/macros/s/AKfycbydeGJlDAWwZCE5PY08zOOmx37ItizsHHLSxDEwAEOsGgT7n9rqb4V1Anelns4sezU6/exec" },
-  { name: "Pokémon Fire Red`", url: "https://script.google.com/macros/s/AKfycbzEbzXxS4zazELSeJtXyLaPrJhPMEJsh2lACeG_0Ky7xTL0ewG0m1iJeU2d1K0OmeGOug/exec" },
+  { name: "Pokémon Fire Red", url: "https://script.google.com/macros/s/AKfycbzEbzXxS4zazELSeJtXyLaPrJhPMEJsh2lACeG_0Ky7xTL0ewG0m1iJeU2d1K0OmeGOug/exec" },
   { name: "Pokémon Leaf Green", url: "https://script.google.com/macros/s/AKfycbxWYXzXN3TRwxELxgrTkjmE5hyqPMgzdNn6clWSzVcU-m0m9MDdHHb-VP-VDnz06vNe/exec" },
   { name: "Pokémon Ruby", url: "https://script.google.com/macros/s/AKfycbypOitjGD19RPkCYQ8vgJzFfmtMtnl3naBwSw9OhpqtalZs0k3Pri3nL7X76qUwdV9GGQ/exec" },
   { name: "Pokémon Sapphire", url: "https://script.google.com/macros/s/AKfycbyeS8uFFwRdwOSD8Nx9TgRvHjajV_wF-Hhcb1yylBWSderXu0DEwCWC639oGWZThrjP/exec" },
+
+
+  { name: "Poly Track!", url: "https://waguri.jalcorn.net/games/polytrack/index.html" },
+  { name: "Resident Evil 1!", url: "https://waguri.jalcorn.net/gamefile/res1.html" },
+  { name: "Resident Evil 2!", url: "https://waguri.jalcorn.net/gamefile/res2.html" },
+  { name: "Sandboxels!", url: "https://waguri.jalcorn.net/gamefile/Sandboxels.html" },
   { name: "Shogun Showdown!", url: "https://script.google.com/macros/s/AKfycbzslmKyXIbcAa1UmApxvSWveDc_NuRfuNYy-oo5-3yCML4N8_-2JoRilqhc92FqrsP0lg/exec" },
   { name: "Slime Rancher (Web Port)", url: "https://slime-rancherweb.netlify.app/" },
+  { name: "Slope!", url: "https://waguri.jalcorn.net/games/slope/index.html" },
+  { name: "Slow roads!", url: "https://waguri.jalcorn.net/games/slowroads/index.html" },
   { name: "Soccer Bros", url: "https://waguri.jalcorn.net/games/soccerbros/index.html" },
   { name: "Stick War", url: "https://arcadehubgaming.github.io/cdn4/cdn4/stickwar/index.html" },
   { name: "Street Fighter 2", url: "Hosted on a local CDN :D", js: "fetchFromCDN('https://cdn.jsdelivr.net/gh/ResonanceRenaissance/webportsCDN/street-fighter/2/index.html')" },
@@ -454,6 +470,9 @@ const games = [
   { name: "The Binding of Isaac", url: "https://arcadehubgaming.github.io/cdn7/bindings of issac/" },
   { name: "The Binding Of Isaac - Wrath of The Lamb", url: "https://binding-of-isaac-wotl.netlify.app/wrath-of-the-lamb/" },
   { name: "The Binding Of Isaac - Wrath of The Lamb [ETERNAL]", url: "https://binding-of-isaac-wotl.netlify.app/wrath-of-the-lamb-eternal/" },
+  { name: "Time Shooter 3 (S.W.A.T)!", url: "https://waguri.jalcorn.net/games/timeshoot3/index.html" },
+  { name: "Ultrakill!", url: "https://waguri.jalcorn.net/games/ultrakill/ultrakill/index.html" },
+  
   // { name: "Taiko no Tatsujin Web (Aether's Personal Fav)", url: "https://cjdgrevival.com" },
   { name: "Wolfenstein 3D", url: "https://arcadehubgaming.github.io/cdn6/cdn6/wolf3d/index.html" },
 
@@ -586,6 +605,8 @@ searchBar.addEventListener("input", () => {
 
 
     renderGames();
+
+    document.getElementById("gameLen").innerHTML = games.length
   </script>
 </body>
 </html>
